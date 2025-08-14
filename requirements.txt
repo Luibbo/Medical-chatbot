@@ -1,0 +1,8 @@
+ctransformers
+sentence-transformers
+pinecone
+langchain
+langchain-community
+flask
+langchain-openai
+langchain-pinecone
