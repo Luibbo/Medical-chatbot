@@ -6,3 +6,5 @@ langchain-community
 flask
 langchain-openai
 langchain-pinecone
+pypdf
+hf_xet
