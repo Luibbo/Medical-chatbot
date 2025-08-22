@@ -6,6 +6,7 @@ langchain-community
 flask
 langchain-openai
 langchain-pinecone
+langchain-huggingface
 pypdf
 hf_xet
 llama-cpp-python
