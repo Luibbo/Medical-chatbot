@@ -8,3 +8,4 @@ langchain-openai
 langchain-pinecone
 pypdf
 hf_xet
+llama-cpp-python
