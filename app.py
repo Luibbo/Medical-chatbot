@@ -8,7 +8,6 @@ from dotenv import load_dotenv
 from langchain_community.llms import LlamaCpp
 from src.prompt import prompt_template
 import os
-
 app = Flask(__name__)
 
 load_dotenv()
@@ -31,7 +30,8 @@ llm = LlamaCpp(
     n_ctx=2048,
     n_threads=0,
     temperature=0.8,
-    max_tokens=512
+    max_tokens=512,
+    verbose=False
 )
 
 qa = RetrievalQA.from_chain_type(
@@ -45,6 +45,16 @@ qa = RetrievalQA.from_chain_type(
 @app.route("/")
 def index():
     return render_template('chat.html')
+
+@app.route("/get", methods=["GET", "POST"])
+def chat():
+    msg = request.form["msg"]
+    input = msg
+    print(input)
+    result = qa.invoke({"query": input})
+    print("Response: ", result['result'])
+    return str(result['result'])
+
 
 if __name__ == '__main__':
     app.run(debug=True)
